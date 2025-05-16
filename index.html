@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyWallet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Tela Inicial (iPhone 8-1) -->
+  <div id="tela-inicial" class="tela">
+    <div class="logo">MyWallet</div>
+    <input type="email" id="email-login" placeholder="E-mail">
+    <input type="password" id="senha-login" placeholder="Senha">
+    <button id="entrar">Entrar</button>
+    <a href="#" id="cadastrar-se">Primeira vez? Cadastre-se!</a>
+  </div>
+
+  <!-- Criação de Conta (iPhone 8-2) -->
+  <div id="tela-cadastro" class="tela" style="display: none;">
+    <div class="logo">MyWallet</div>
+    <input type="text" id="nome-cadastro" placeholder="Nome">
+    <input type="email" id="email-cadastro" placeholder="E-mail">
+    <input type="password" id="senha-cadastro" placeholder="Senha">
+    <input type="password" id="confirmar-senha" placeholder="Confirme a senha">
+    <button id="cadastrar">Cadastrar</button>
+    <a href="#" id="ja-tem-conta">Já tem uma conta? Entre agora!</a>
+  </div>
+
+  <!-- Home (iPhone 8-3) - Sem dados -->
+  <div id="tela-home-sem-dados" class="tela" style="display: none;">
+    <div class="cabecalho">
+
+      <div class="nome-usuario" id="nome-usuario-com-dados">Olá, Fulano</div>
+
+      <button class="icone-configuracoes">⚙️</button>
+    </div>
+    <div class="conteudo">
+      <p>Não há registros de entrada ou saída</p>
+    </div>
+    <div class="botoes-inferiores">
+      <button id="nova-entrada">+</button>
+      <button id="nova-saida">-</button>
+    </div>
+  </div>
+
+  <!-- Home Com Dados (iPhone 8-6) -->
+  <div id="tela-home-com-dados" class="tela" style="display: none;">
+    <div class="cabecalho">
+      <div class="nome-usuario">Olá, Fulano</div>
+      <button class="icone-configuracoes">⚙️</button>
+    </div>
+    <div class="lista-transacoes">
+      <!-- As transações serão renderizadas aqui dinamicamente -->
+    </div>
+    <div class="saldo">
+      Saldo: <span id="saldo-valor">0.00</span>
+    </div>
+    <div class="botoes-inferiores">
+      <button id="nova-entrada-com-dados">+</button>
+      <button id="nova-saida-com-dados">-</button>
+    </div>
+  </div>
+
+  <!-- Nova Entrada/Saída (iPhone 8-4 e 8-5) -->
+  <div id="tela-nova-transacao" class="tela" style="display: none;">
+    <div class="titulo-transacao">Nova Entrada</div> <!-- Ou Nova Saída -->
+    <input type="number" id="valor-transacao" placeholder="Valor">
+    <input type="text" id="descricao-transacao" placeholder="Descrição">
+    <button id="salvar-transacao">Salvar Entrada</button> <!-- Ou Salvar Saída -->
+  </div>
+
+  <!-- Editar Entrada/Saída (iPhone 8-8 e 8-9) -->
+    <div id="tela-editar-transacao" class="tela" style="display: none;">
+        <div class="titulo-transacao">Editar Entrada</div>
+        <input type="number" id="valor-editar" placeholder="Valor">
+        <input type="text" id="descricao-editar" placeholder="Descrição">
+        <button id="atualizar-transacao">Atualizar Entrada</button>
+    </div>
+
+  <!--  Apagar Registros (iPhone 8-7) - não precisa de uma tela separada, usaremos uma modal -->
+
+  <script src="script.js"></script>
+</body>
+</html>
