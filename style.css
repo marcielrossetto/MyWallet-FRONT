@@ -1,129 +1,210 @@
-/* style.css */
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY */
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5; /* Cor de fundo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #8C11BE;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  min-height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* CAIXA PRINCIPAL */
+.box {
+  width: 100%;
+  max-width: 430px;
+  height: 100vh;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 80px 20px;
+  position: relative;
+}
+
+/* CONTAINER DINÂMICO */
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* INPUTS E BOTÕES */
+input, button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input {
+  background-color: #fff;
+  color: #000;
+}
+
+button {
+  background-color: #A328D6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+header h2 {
+  margin: 0;
+}
+header .logout-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* LISTA DE TRANSAÇÕES */
+ul.transaction-list {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 100px;
+}
+
+ul.transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+}
+
+ul.transaction-list li:last-child {
+  border-bottom: none;
+}
+
+ul.transaction-list .date {
+  width: 20%;
+  color: #999;
+  font-size: 12px;
+}
+
+ul.transaction-list .desc {
+  flex: 1;
+  margin: 0 8px;
+  color: #333;
+  cursor: pointer;
+}
+
+ul.transaction-list .value {
+  width: 20%;
+  text-align: right;
+  font-weight: bold;
+}
+
+ul.transaction-list .deposit.value {
+  color: green;
+}
+
+ul.transaction-list .withdraw.value {
+  color: red;
+}
+
+ul.transaction-list .action-icon {
+  margin-left: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+ul.transaction-list .action-icon.delete {
+  color: red;
+}
+
+/* SALDO */
+#balance {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* FOOTER FIXO */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #8C11BE;
+}
+
+footer button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* OCULTAR ELEMENTOS */
+.hidden {
+  display: none;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .box {
+    max-width: 100%;
+    border-radius: 0;
   }
-  
-  .tela {
-    width: 100%;
-    max-width: 300px; /* Largura do iPhone 8 */
-    background-color: #b300fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 10px;
+
+  .container {
+    padding-bottom: 80px; /* espaço para footer */
   }
-  
-  .logo {
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #6a0dad; /* Cor roxa */
+
+  header {
+    font-size: 16px;
   }
-  
-  input[type="email"],
-  input[type="password"],
-  input[type="text"],
-  input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+  button, input {
+    font-size: 15px;
   }
-  
-  button {
-    background-color: #6a0dad; /* Cor roxa */
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 15px;
+
+  ul.transaction-list li {
+    flex-wrap: wrap;
+    gap: 5px;
   }
-  
-  button:hover {
-    background-color: #7b2d99;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #6a0dad; /* Cor roxa */
-    display: block;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  
-  .cabecalho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .nome-usuario {
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-  
-  .lista-transacoes {
-    margin-bottom: 20px;
-  }
-  
-  .transacao {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .transacao:last-child {
-    border-bottom: none;
-  }
-  
-  .botoes-inferiores {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-  
-  .botoes-inferiores button {
-    width: 48%;
-    margin-bottom: 0;
-  }
-  
-  .titulo-transacao {
-    font-size: 1.3em;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Outros estilos específicos */
-  /* Adicione estilos para os ícones, cores, etc. */
-  .icone-configuracoes {
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-  }
-  
-  .saldo {
-      font-weight: bold;
-      text-align: center;
-      margin-top: 15px;
-  }
-  
-  .transacao-valor-negativo {
-      color: red;
-  }
+}
