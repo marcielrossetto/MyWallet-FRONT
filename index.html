@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -41,7 +41,7 @@
     <div class="container hidden" id="home-screen">
       <header>
         <h2>Olá, <span id="user-name">Fulano</span></h2>
-        <a class="icon-only logout-btn" onclick="logout()" aria-label="Sair">🔒</a>
+        <button class="icon-only logout-btn" onclick="logout()" aria-label="Sair">🔒</button>
       </header>
 
       <ul id="transaction-list" class="transaction-list">
@@ -52,10 +52,15 @@
         <strong>SALDO:</strong> <span id="balance-value">0,00</span>
       </div>
 
-     
       <footer>
-        <button class="footer-action deposit" onclick="showTransactionForm('deposit')" aria-label="Nova entrada">➕</button>
-        <button class="footer-action withdraw" onclick="showTransactionForm('withdraw')" aria-label="Nova saída">➖</button>
+        <button class="footer-action deposit" onclick="showTransactionForm('deposit')" aria-label="Nova entrada">
+          <span>➕</span>
+          <small>Entrada</small>
+        </button>
+        <button class="footer-action withdraw" onclick="showTransactionForm('withdraw')" aria-label="Nova saída">
+          <span>➖</span>
+          <small>Saída</small>
+        </button>
       </footer>
     </div>
 

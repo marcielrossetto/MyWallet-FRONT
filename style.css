@@ -12,24 +12,21 @@ body {
   color: white;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;     /* centra verticalmente */
   min-height: 100vh;
   padding: 20px;
-  overflow: hidden;
 }
 
 /* CAIXA PRINCIPAL */
 .box {
   width: 100%;
   max-width: 430px;
-  height: 100vh;
-  background-color: white;
+  background-color: rgb(146, 23, 228);
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 20px 20px 80px 20px;
+  padding: 20px;
   position: relative;
 }
 
@@ -56,8 +53,8 @@ input {
 }
 
 button {
-  background-color: #A328D6;
-  color: white;
+  background-color: #6909e7;
+  color: rgb(246, 246, 247);
   font-weight: bold;
   cursor: pointer;
 }
@@ -73,6 +70,7 @@ header {
   align-items: center;
   font-weight: bold;
   font-size: 18px;
+  margin-bottom: 10px;
 }
 header h2 {
   margin: 0;
@@ -81,8 +79,13 @@ header .logout-btn {
   background: none;
   border: none;
   font-size: 24px;
-  color: white;
+  color: #8C11BE;
   cursor: pointer;
+}
+ul.transaction-list {
+  max-height: calc(100vh - 250px); /* ajuste conforme seu layout */
+  overflow-y: auto;
+  /* … o resto das regras … */
 }
 
 /* LISTA DE TRANSAÇÕES */
@@ -102,7 +105,7 @@ ul.transaction-list li {
   align-items: center;
   padding: 8px 0;
   font-size: 14px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #d4a9c6;
 }
 
 ul.transaction-list li:last-child {
@@ -129,11 +132,18 @@ ul.transaction-list .value {
 }
 
 ul.transaction-list .deposit.value {
-  color: green;
+  color: #48f105;  /* verde */
 }
 
 ul.transaction-list .withdraw.value {
-  color: red;
+  color: #C70000;  /* vermelho */
+}
+ul.transaction-list li.deposit {
+  color: #03AC00;
+}
+
+ul.transaction-list li.withdraw {
+  color: #C70000;
 }
 
 ul.transaction-list .action-icon {
@@ -143,40 +153,51 @@ ul.transaction-list .action-icon {
 }
 
 ul.transaction-list .action-icon.delete {
-  color: red;
+  color: #C70000;
 }
 
 /* SALDO */
 #balance {
-  background-color: white;
+  background-color: rgb(245, 227, 242);
   color: black;
   font-weight: bold;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 /* FOOTER FIXO */
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   display: flex;
   gap: 10px;
-  padding: 10px 20px;
-  background-color: #8C11BE;
+  padding-top: 10px;
+  background: none;
 }
 
-footer button {
+footer .footer-action {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 15px;
   font-size: 14px;
-  border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+footer .footer-action span {
+  font-size: 20px;
+}
+
+footer .footer-action.deposit {
+  border-color: #03AC00;
+  color: #03AC00;
+}
+
+footer .footer-action.withdraw {
+  border-color: #C70000;
+  color: #C70000;
 }
 
 /* OCULTAR ELEMENTOS */
@@ -189,10 +210,6 @@ footer button {
   .box {
     max-width: 100%;
     border-radius: 0;
-  }
-
-  .container {
-    padding-bottom: 80px; /* espaço para footer */
   }
 
   header {
