@@ -8,11 +8,11 @@
 /* BODY */
 body {
   font-family: Arial, sans-serif;
-  background-color: #8C11BE;
+  background-color: #8c11be;
   color: white;
   display: flex;
   justify-content: center;
-  align-items: center;     /* centra verticalmente */
+  align-items: center; /* centra verticalmente */
   min-height: 100vh;
   padding: 20px;
 }
@@ -23,7 +23,7 @@ body {
   max-width: 430px;
   background-color: rgb(146, 23, 228);
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -37,9 +37,19 @@ body {
   flex-direction: column;
   gap: 10px;
 }
+/* Balance positivo */
+#balance.positive {
+  color: #03ac00; /* verde */
+}
+
+/* Balance negativo */
+#balance.negative {
+  color: #c70000; /* vermelho */
+}
 
 /* INPUTS E BOTÕES */
-input, button {
+input,
+button {
   width: 100%;
   padding: 12px;
   border: none;
@@ -62,6 +72,23 @@ button {
 button:hover {
   opacity: 0.9;
 }
+/* Botão de entrada: fundo verde, texto branco */
+footer .footer-action.deposit {
+  background-color: #03ac00;
+  color: white;
+}
+
+/* Botão de saída: fundo vermelho, texto branco */
+footer .footer-action.withdraw {
+  background-color: #c70000;
+  color: white;
+}
+
+/* Se quiser manter o hover levemente transparente */
+footer .footer-action.deposit:hover,
+footer .footer-action.withdraw:hover {
+  opacity: 0.9;
+}
 
 /* HEADER */
 header {
@@ -79,7 +106,7 @@ header .logout-btn {
   background: none;
   border: none;
   font-size: 24px;
-  color: #8C11BE;
+  color: #8c11be;
   cursor: pointer;
 }
 ul.transaction-list {
@@ -132,18 +159,18 @@ ul.transaction-list .value {
 }
 
 ul.transaction-list .deposit.value {
-  color: #48f105;  /* verde */
+  color: #48f105; /* verde */
 }
 
 ul.transaction-list .withdraw.value {
-  color: #C70000;  /* vermelho */
+  color: #c70000; /* vermelho */
 }
 ul.transaction-list li.deposit {
-  color: #03AC00;
+  color: #03ac00;
 }
 
 ul.transaction-list li.withdraw {
-  color: #C70000;
+  color: #c70000;
 }
 
 ul.transaction-list .action-icon {
@@ -153,7 +180,7 @@ ul.transaction-list .action-icon {
 }
 
 ul.transaction-list .action-icon.delete {
-  color: #C70000;
+  color: #c70000;
 }
 
 /* SALDO */
@@ -191,13 +218,13 @@ footer .footer-action span {
 }
 
 footer .footer-action.deposit {
-  border-color: #03AC00;
-  color: #03AC00;
+  border-color: #03ac00;
+  color: #03ac00;
 }
 
 footer .footer-action.withdraw {
-  border-color: #C70000;
-  color: #C70000;
+  border-color: #c70000;
+  color: #c70000;
 }
 
 /* OCULTAR ELEMENTOS */
@@ -216,7 +243,8 @@ footer .footer-action.withdraw {
     font-size: 16px;
   }
 
-  button, input {
+  button,
+  input {
     font-size: 15px;
   }
 

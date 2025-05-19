@@ -1,78 +1,103 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyWallet</title>
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="box">
-    <!-- Tela de Login -->
-    <div class="container" id="login-screen">
-      <h1>MyWallet</h1>
-      <input type="email" placeholder="E-mail" id="login-email" />
-      <input type="password" placeholder="Senha" id="login-password" />
-      <button onclick="login()">Entrar</button>
-      <p onclick="showRegister()">Primeira vez? Cadastre-se!</p>
-    </div>
-
-    <!-- Tela de Cadastro -->
-    <div class="container hidden" id="register-screen">
-      <h1>MyWallet</h1>
-      <input type="text" placeholder="Nome" id="register-name" />
-      <input type="email" placeholder="E-mail" id="register-email" />
-      <input type="password" placeholder="Senha" id="register-password" />
-      <input type="password" placeholder="Confirme a senha" id="register-confirm" />
-      <button onclick="register()">Cadastrar</button>
-      <p onclick="showLogin()">Já tem uma conta? Faça login!</p>
-    </div>
-
-    <!-- Formulário de Edição -->
-    <div class="container hidden" id="edit-form-screen">
-      <h2 id="edit-title">Editar entrada</h2>
-      <input type="number" placeholder="Valor" id="edit-value" />
-      <input type="text" placeholder="Descrição" id="edit-description" />
-      <button id="edit-button" onclick="updateTransaction()">Atualizar entrada</button>
-    </div>
-
-    <!-- Tela Principal -->
-    <div class="container hidden" id="home-screen">
-      <header>
-        <h2>Olá, <span id="user-name">Fulano</span></h2>
-        <button class="icon-only logout-btn" onclick="logout()" aria-label="Sair">🔒</button>
-      </header>
-
-      <ul id="transaction-list" class="transaction-list">
-        <li>Nenhuma transação encontrada</li>
-      </ul>
-
-      <div id="balance">
-        <strong>SALDO:</strong> <span id="balance-value">0,00</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyWallet</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="box">
+      <!-- Tela de Login -->
+      <div class="container" id="login-screen">
+        <h1>MyWallet</h1>
+        <input type="email" placeholder="E-mail" id="login-email" />
+        <input type="password" placeholder="Senha" id="login-password" />
+        <button onclick="login()">Entrar</button>
+        <p onclick="showRegister()">Primeira vez? Cadastre-se!</p>
       </div>
 
-      <footer>
-        <button class="footer-action deposit" onclick="showTransactionForm('deposit')" aria-label="Nova entrada">
-          <span>➕</span>
-          <small>Entrada</small>
+      <!-- Tela de Cadastro -->
+      <div class="container hidden" id="register-screen">
+        <h1>MyWallet</h1>
+        <input type="text" placeholder="Nome" id="register-name" />
+        <input type="email" placeholder="E-mail" id="register-email" />
+        <input type="password" placeholder="Senha" id="register-password" />
+        <input
+          type="password"
+          placeholder="Confirme a senha"
+          id="register-confirm"
+        />
+        <button onclick="register()">Cadastrar</button>
+        <p onclick="showLogin()">Já tem uma conta? Faça login!</p>
+      </div>
+
+      <!-- Formulário de Edição -->
+      <div class="container hidden" id="edit-form-screen">
+        <h2 id="edit-title">Editar entrada</h2>
+        <input type="number" placeholder="Valor" id="edit-value" />
+        <input type="text" placeholder="Descrição" id="edit-description" />
+        <button id="edit-button" onclick="updateTransaction()">
+          Atualizar entrada
         </button>
-        <button class="footer-action withdraw" onclick="showTransactionForm('withdraw')" aria-label="Nova saída">
-          <span>➖</span>
-          <small>Saída</small>
+      </div>
+
+      <!-- Tela Principal -->
+      <div class="container hidden" id="home-screen">
+        <header>
+          <h2>Olá, <span id="user-name">Fulano</span></h2>
+          <button
+            class="icon-only logout-btn"
+            onclick="logout()"
+            aria-label="Sair"
+          >
+            🔒
+          </button>
+        </header>
+
+        <ul id="transaction-list" class="transaction-list">
+          <li>Nenhuma transação encontrada</li>
+        </ul>
+
+        <div id="balance">
+          <strong>SALDO:</strong> <span id="balance-value">0,00</span>
+        </div>
+        <footer>
+          <button
+            class="footer-action deposit"
+            onclick="showTransactionForm('deposit')"
+            aria-label="Nova entrada"
+          >
+            <span>➕</span>
+            <small>Entrada</small>
+          </button>
+          <button
+            class="footer-action withdraw"
+            onclick="showTransactionForm('withdraw')"
+            aria-label="Nova saída"
+          >
+            <span>➖</span>
+            <small>Saída</small>
+          </button>
+        </footer>
+      </div>
+
+      <!-- Formulário de Nova Transação -->
+      <div class="container hidden" id="transaction-form-screen">
+        <h2 id="transaction-title">Nova entrada</h2>
+        <input type="number" placeholder="Valor" id="transaction-value" />
+        <input
+          type="text"
+          placeholder="Descrição"
+          id="transaction-description"
+        />
+        <button onclick="saveTransaction()" id="transaction-button">
+          Salvar
         </button>
-      </footer>
+      </div>
     </div>
 
-    <!-- Formulário de Nova Transação -->
-    <div class="container hidden" id="transaction-form-screen">
-      <h2 id="transaction-title">Nova entrada</h2>
-      <input type="number" placeholder="Valor" id="transaction-value" />
-      <input type="text" placeholder="Descrição" id="transaction-description" />
-      <button onclick="saveTransaction()" id="transaction-button">Salvar</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
