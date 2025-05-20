@@ -1,4 +1,3 @@
-
 const API_URL = "https://mywallet-backend-qmpl.onrender.com";
 
 let token = "";
@@ -33,6 +32,10 @@ function showTransactionForm(type) {
   document.getElementById("transaction-button").dataset.type = type;
   showScreen("transaction-form-screen");
 }
+function capitalizeName(name) {
+  if (!name) return "";
+  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
 
 async function login() {
   const email = document.getElementById("login-email").value;
@@ -49,7 +52,8 @@ async function login() {
 
     const data = await res.json();
     token = data.token;
-    document.getElementById("user-name").innerText = email.split("@")[0];
+    const username = email.split("@")[0];
+    document.getElementById("user-name").innerText = capitalizeName(username);
     showHome();
   } catch (err) {
     alert("Erro de conexão");
@@ -87,9 +91,7 @@ function logout() {
 }
 
 async function saveTransaction() {
-  const value = parseFloat(
-    document.getElementById("transaction-value").value
-  );
+  const value = parseFloat(document.getElementById("transaction-value").value);
   const description = document.getElementById("transaction-description").value;
   const type = document.getElementById("transaction-button").dataset.type;
 
@@ -179,9 +181,7 @@ async function editTransaction(id, value, description, type) {
 }
 
 async function updateTransaction() {
-  const value = parseFloat(
-    document.getElementById("edit-value").value
-  );
+  const value = parseFloat(document.getElementById("edit-value").value);
   const description = document.getElementById("edit-description").value;
 
   try {
@@ -233,7 +233,7 @@ function updateBalance(transactions) {
     return sum + (tx.type === "deposit" ? tx.value : -tx.value);
   }, 0);
 
-  balanceEl.textContent = `Saldo: R$ ${total.toFixed(2).replace('.', ',')}`;
+  balanceEl.textContent = `Saldo: R$ ${total.toFixed(2).replace(".", ",")}`;
 
   balanceEl.classList.remove("positive", "negative");
   if (total >= 0) balanceEl.classList.add("positive");
