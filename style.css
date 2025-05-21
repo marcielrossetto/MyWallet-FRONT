@@ -218,36 +218,62 @@ ul.transaction-list .action-icon.delete {
 }
 
 /* FOOTER FIXO */
+/* 1) Deixe o footer em linha e com um espaçamento */
 footer {
   display: flex;
-  gap: 10px;
-  padding-top: 10px;
-  background: none;
+  gap: 12px;            /* espaço entre os botões */
+  padding-top: 20px;
 }
 
+/* 2) Faça cada botão ter o mesmo tamanho e formato de “card” */
 footer .footer-action {
-  flex: 1;
+  flex: 1;                       /* cada um ocupa metade do espaço */
+  aspect-ratio: 1;               /* altura = largura */
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-  font-size: 14px;
+  flex-direction: column;        /* ícone em cima, texto embaixo */
+  justify-content: space-between;/* ícone no topo e texto na base */
+  align-items: flex-start;       /* tudo alinha à esquerda */
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
   border: 2px solid transparent;
 }
 
+/* 3) Ícone maior e em destaque */
 footer .footer-action span {
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 1;
 }
 
+/* 4) Texto menor embaixo */
+footer .footer-action small {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* 5) Cores específicas para depósito e saque */
 footer .footer-action.deposit {
-  border-color: #03ac00;
-  color: #03ac00;
+  background-color: #a64ff4;
+  border-color: #521779;
+  color: white;
+}
+footer .footer-action.withdraw {
+  background-color: #b86feb;
+  border-color: #831ea1;
+  color: white;
 }
 
-footer .footer-action.withdraw {
-  border-color: #c70000;
-  color: #c70000;
+/* 6) Hover para dar feedback */
+footer .footer-action.deposit:hover {
+  background-color: #8edc80;
 }
+footer .footer-action.withdraw:hover {
+  background-color: #f79494;
+}
+
 
 /* OCULTAR ELEMENTOS */
 .hidden {
