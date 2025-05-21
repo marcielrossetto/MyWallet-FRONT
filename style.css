@@ -8,7 +8,7 @@
 /* BODY */
 body {
   font-family: Arial, sans-serif;
-  background-color: #8c11be;
+  background-color: #A328D6;
   color: white;
   display: flex;
   justify-content: center;
@@ -86,7 +86,7 @@ input {
 }
 
 button {
-  background-color: #6909e7;
+  background-color:#A328D6;
   color: rgb(246, 246, 247);
   font-weight: bold;
   cursor: pointer;
@@ -97,13 +97,13 @@ button:hover {
 }
 /* Botão de entrada: fundo verde, texto branco */
 footer .footer-action.deposit {
-  background-color: #6909e7;
+  background-color:#A328D6;
   color: white;
 }
 
 /* Botão de saída: fundo vermelho, texto branco */
 footer .footer-action.withdraw {
-  background-color: #6909e7;
+  background-color: #A328D6;
   color: white;
 }
 
@@ -238,7 +238,7 @@ footer .footer-action {
   padding: 12px;
   cursor: pointer;
   transition: background-color 0.2s, border-color 0.2s;
-  border: 2px solid transparent;
+  border: none;
 }
 
 /* 3) Ícone maior e em destaque */
@@ -256,22 +256,22 @@ footer .footer-action small {
 
 /* 5) Cores específicas para depósito e saque */
 footer .footer-action.deposit {
-  background-color: #6909e7;
-  border-color: #521779;
+  background-color: #A328D6;
+  border-color: #A328D6;
   color: white;
 }
 footer .footer-action.withdraw {
-  background-color: #6909e7;
-  border-color: #831ea1;
+  background-color: #A328D6;
+  border-color:#A328D6;
   color: white;
 }
 
 /* 6) Hover para dar feedback */
 footer .footer-action.deposit:hover {
-  background-color: #6909e7;
+  background-color: #A328D6;
 }
 footer .footer-action.withdraw:hover {
-  background-color: #6909e7;
+  background-color: #A328D6;
 }
 
 
