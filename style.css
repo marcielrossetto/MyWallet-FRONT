@@ -97,13 +97,13 @@ button:hover {
 }
 /* Botão de entrada: fundo verde, texto branco */
 footer .footer-action.deposit {
-  background-color: #03ac00;
+  background-color: #6909e7;
   color: white;
 }
 
 /* Botão de saída: fundo vermelho, texto branco */
 footer .footer-action.withdraw {
-  background-color: #c70000;
+  background-color: #6909e7;
   color: white;
 }
 
@@ -256,22 +256,22 @@ footer .footer-action small {
 
 /* 5) Cores específicas para depósito e saque */
 footer .footer-action.deposit {
-  background-color: #a64ff4;
+  background-color: #6909e7;
   border-color: #521779;
   color: white;
 }
 footer .footer-action.withdraw {
-  background-color: #b86feb;
+  background-color: #6909e7;
   border-color: #831ea1;
   color: white;
 }
 
 /* 6) Hover para dar feedback */
 footer .footer-action.deposit:hover {
-  background-color: #8edc80;
+  background-color: #6909e7;
 }
 footer .footer-action.withdraw:hover {
-  background-color: #f79494;
+  background-color: #6909e7;
 }
 
 
