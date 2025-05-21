@@ -56,6 +56,29 @@ button {
   border-radius: 5px;
   font-size: 16px;
 }
+.transaction-list {
+  /* define uma altura máxima para a lista;
+     ajuste conforme sua UI (300px é só um exemplo) */
+  max-height: 300px;
+
+  /* ativa a rolagem vertical quando ultrapassar essa altura */
+  overflow-y: auto;
+
+  /* um padding (ou margin) à direita ajuda a não cortar a scrollbar */
+  padding-right: 8px;
+}
+
+/* opcional: estilos para a barra de scroll no Chrome/WebKit */
+.transaction-list::-webkit-scrollbar {
+  width: 8px;
+}
+.transaction-list::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(0,0,0,0.2);
+}
+.transaction-list::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+}
 
 input {
   background-color: #fff;
@@ -103,11 +126,10 @@ header h2 {
   margin: 0;
 }
 header .logout-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #8c11be;
-  cursor: pointer;
+  width: auto;           /* não ocupar 100% da largura */
+  margin-left: auto;     /* empurra pro canto direito do flex container */
+  padding: 0.5em;        /* ajusta o padding a gosto */
+  text-align: right;     /* garante o texto/ícone à direita */
 }
 ul.transaction-list {
   max-height: calc(100vh - 250px); /* ajuste conforme seu layout */
