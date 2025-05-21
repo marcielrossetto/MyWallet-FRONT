@@ -57,18 +57,10 @@ button {
   font-size: 16px;
 }
 .transaction-list {
-  /* define uma altura máxima para a lista;
-     ajuste conforme sua UI (300px é só um exemplo) */
-  max-height: 300px;
-
-  /* ativa a rolagem vertical quando ultrapassar essa altura */
+  max-height: calc(100vh - 200px);
   overflow-y: auto;
-
-  /* um padding (ou margin) à direita ajuda a não cortar a scrollbar */
-  padding-right: 8px;
 }
 
-/* opcional: estilos para a barra de scroll no Chrome/WebKit */
 .transaction-list::-webkit-scrollbar {
   width: 8px;
 }
